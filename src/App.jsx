@@ -5,7 +5,6 @@ import Contact from './pages/Contact.jsx'
 import Team from './pages/Team.jsx'
 
 import { Route, Routes } from "react-router-dom";
-import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 const App = () => {
   return (
     <>
@@ -14,7 +13,6 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/team" element={<Team/>}/>
-        <Route path="/privacy" element={<PrivacyPolicy/>}/>
       </Routes>
     </>
   );

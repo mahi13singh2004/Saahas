@@ -1,178 +1,298 @@
-import React, { useState } from "react";
-import dev from "../temping/dev.jpg";
-import mahi from "../temping/mahi.jpg";
-import piy from "../temping/piy.jpg";
-import maynk from "../temping/maynk.jpg";
-
-const TeamMember = ({
-  imgSrc,
-  name,
-  role,
-  description,
-  github,
-  twitter,
-  instagram,
-  linkend,
-}) => {
-  return (
-    <div className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-      <div className="rounded overflow-hidden shadow-md bg-blue bg-transparent">
-        <div className="absolute -mt-20 w-full flex justify-center">
-          <div className="h-32 w-32">
-            <img
-              src={imgSrc}
-              className="rounded-full object-cover h-full w-full shadow-md"
-            />
-          </div>
-        </div>
-        <div className="px-6 mt-16 bg-transparent">
-          <h1 className="font-bold dark:text-white text-3xl text-center mb-1">
-            {name}
-          </h1>
-          <p className="text-gray-800 dark:text-white text-sm text-center">
-            {role}
-          </p>
-          <p className="text-center text-gray-600 dark:text-gray-200 text-base pt-3 font-normal">
-            {description}
-          </p>
-          <div className="w-full flex justify-center pt-5 pb-5">
-            <a
-              href={github}
-              className="mx-5 bg-black-black"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/gray-bg-with-description-svg1.svg"
-                alt="github"
-              />
-            </a>
-            {twitter && (
-              <a
-                href={twitter}
-                className="mx-5"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/gray-bg-with-description-svg2.svg"
-                  alt="twitter"
-                />
-              </a>
-            )}
-            {instagram && (
-              <a
-                href={instagram}
-                className="mx-5"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/gray-bg-with-description-svg3.svg"
-                  alt="instagram"
-                />
-              </a>
-            )}
-            {linkend && (
-              <a
-                href={linkend}
-                className="mx-5"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://th.bing.com/th?id=ODLS.fc619bab-a786-4b75-8669-6881202d98da&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
-                  alt="linkedin"
-                  className="h-6 w-6"
-                />
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import React from "react";
+import Mahi from '../temping/Mahi.png'
+import maynk  from '../temping/maynk.jpg'
+import piy from '../temping/piy.jpg'
+import dev from '../temping/dev.jpg'
 
 const Team = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const teamMembers = [
-    {
-      imgSrc: mahi,
-      name: "Mahi Singh",
-      role: "Mern Stack Developer",
-      description: "Expert in Full Stack Development, Competitive Programming",
-      github: "https://github.com/mahi13singh2004",
-      linkend: "https://www.linkedin.com/in/mahi-singh-817825282/",
-    },
-    {
-      imgSrc: dev,
-      name: "Dev Lohani",
-      role: "Mern Stack Developer",
-      description: "Expert in Frontend Development, AIML, Machine Learning",
-      github: "https://github.com/devlohani99",
-      linkend: "https://www.linkedin.com/in/devlohani/",
-    },
-    {
-      imgSrc: maynk,
-      name: "Mayank Dundiyal",
-      role: "App Developer",
-      description: "Expert in App Development & Android studio",
-      github: "https://github.com/Dmayank297",
-      linkend: "https://www.linkedin.com/in/mayank-dhaundiyal-759b12282/",
-    },
-    {
-      imgSrc: piy,
-      name: "Piyush Mishra",
-      role: "App Developer",
-      description: "Expert in App Development & Android studio",
-      github: "https://github.com/Piyush-Kumar-Mishra",
-      linkend: "https://www.linkedin.com/in/piyush-mishra-77a442212/",
-    },
-  ];
-
-  const nextMember = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % teamMembers.length);
-  };
-
-  const prevMember = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + teamMembers.length) % teamMembers.length
-    );
-  };
-
   return (
-    <div className="flex flex-col items-center">
-      <div className="container flex justify-center mx-auto pt-16 bg-gradient-to-r from-blue-300 to-pink-300">
-        <div>
-          <h1 className="xl:text-4xl text-6xl text-center text-gray-900 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto ">
-            Team
-          </h1>
-        </div>
-      </div>
+    <>
+      <div class="font-[sans-serif] bg-gradient-to-r from-#93c5fd to-#f472b6">
+        <div class="lg:max-w-6xl max-w-xl mx-auto p-4">
+          <h2 class="text-gray-800 text-3xl font-extrabold text-center">
+            Meet Our Team
+          </h2>
 
-      <div className="w-full bg-gradient-to-r from-blue-300 to-pink-300 pt-10">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap justify-center gap-8">
-            <TeamMember {...teamMembers[currentIndex]} />
-          </div>
-          <div className="flex justify-center pt-6 mb-9 gap-5">
-            <button
-              onClick={prevMember}
-              className="px-4 py-2 bg-gray-800 text-white rounded-md mr-4 hover:bg-gray-700"
-            >
-              Prev
-            </button>
-            <button
-              onClick={nextMember}
-              className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-            >
-              Next
-            </button>
+          <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 max-md:justify-center mt-12">
+            <div class="flex items-center max-sm:flex-col bg-gray-100 gap-4 rounded-lg overflow-hidden hover:scale-[1.02] transition-all">
+              <img
+                src={Mahi}
+                class="w-full sm:h-60 object-cover"
+              />
+
+              <div class="p-4">
+                <h4 class="text-gray-800 text-base font-bold">Mahi Singh</h4>
+                <p class="text-gray-600 text-xs mt-1">Web Developer</p>
+
+                <div class="mt-4">
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Hello, Myself Mahi and i have great interest in web development
+                  </p>
+                </div>
+
+                <div class="space-x-2 mt-4">
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 155.139 155.139"
+                    >
+                      <path
+                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                        data-original="#010002"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#03a9f4] hover:bg-[#03a1f4] active:bg-[#03a9f4]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                        data-original="#03a9f4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#0077b5] hover:bg-[#0055b5] active:bg-[#0077b5]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                        data-original="#0077b5"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center max-sm:flex-col bg-gray-100 gap-4 rounded-lg overflow-hidden hover:scale-[1.02] transition-all">
+              <img
+                src={maynk}
+                class="w-full sm:h-60 object-cover"
+              />
+
+              <div class="p-4">
+                <h4 class="text-gray-800 text-base font-bold">Mayank Dhaundiyal</h4>
+                <p class="text-gray-500 text-xs mt-1">App Developer</p>
+
+                <div class="mt-4">
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                  Hello, Myself Mayank and i have great interest in app development
+                  </p>
+                </div>
+
+                <div class="space-x-2 mt-4">
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 155.139 155.139"
+                    >
+                      <path
+                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                        data-original="#010002"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#03a9f4] hover:bg-[#03a1f4] active:bg-[#03a9f4]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                        data-original="#03a9f4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#0077b5] hover:bg-[#0055b5] active:bg-[#0077b5]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                        data-original="#0077b5"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center max-sm:flex-col bg-gray-100 gap-4 rounded-lg overflow-hidden hover:scale-[1.02] transition-all">
+              <img
+                src={dev}
+                class="w-full sm:h-60 object-cover"
+              />
+
+              <div class="p-4">
+                <h4 class="text-gray-800 text-base font-bold">Dev Lohani</h4>
+                <p class="text-gray-500 text-xs mt-1">Web Developer</p>
+
+                <div class="mt-4">
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                  Hello, Myself Dev and i have great interest in web development
+                  </p>
+                </div>
+
+                <div class="space-x-2 mt-4">
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 155.139 155.139"
+                    >
+                      <path
+                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                        data-original="#010002"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#03a9f4] hover:bg-[#03a1f4] active:bg-[#03a9f4]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                        data-original="#03a9f4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#0077b5] hover:bg-[#0055b5] active:bg-[#0077b5]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                        data-original="#0077b5"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center max-sm:flex-col bg-gray-100 gap-4 rounded-lg overflow-hidden hover:scale-[1.02] transition-all">
+              <img
+                src={piy}
+                class="w-full sm:h-60 object-cover"
+              />
+
+              <div class="p-4">
+                <h4 class="text-gray-800 text-base font-bold">Piyush Mishra</h4>
+                <p class="text-gray-500 text-xs mt-1">App Developer</p>
+
+                <div class="mt-4">
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                  Hello, Myself Mayank and i have great interest in app development
+                  </p>
+                </div>
+
+                <div class="space-x-2 mt-4">
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 155.139 155.139"
+                    >
+                      <path
+                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                        data-original="#010002"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#03a9f4] hover:bg-[#03a1f4] active:bg-[#03a9f4]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                        data-original="#03a9f4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-6 h-6 inline-flex items-center max-sm:flex-col justify-center rounded-full border-none outline-none bg-[#0077b5] hover:bg-[#0055b5] active:bg-[#0077b5]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14px"
+                      fill="#fff"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                        data-original="#0077b5"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
