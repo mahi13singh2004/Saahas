@@ -1,5 +1,5 @@
 import React from "react";
-import safe from "../assets/Safe.jpg";
+import safe from "../assets/safe.jpg";
 import { Routes, Route, Link } from "react-router-dom";
 const Navbar = () => {
   return (
