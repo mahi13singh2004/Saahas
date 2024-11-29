@@ -20,7 +20,7 @@ export const MainContent = () => {
         <ExampleContent2 />
       </TextParallaxContent>
       <TextParallaxContent
-        imgUrl="https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        imgUrl="https://media.istockphoto.com/id/1001313596/photo/woman-raised-her-hand-for-dissuade-campaign-stop-violence-against-women-asian-woman-raised.webp?a=1&b=1&s=612x612&w=0&k=20&c=Ay3JFgH_szSaEUpliLeWH0j1FzgIKM_SA_8quuGCin0="
         subheading="All in one comprehensive solution"
         heading="Choose the best."
       >
